@@ -1,0 +1,83 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+kapt {
+    generateStubs = true
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+    testOptions.unitTests.includeAndroidResources = true
+
+    defaultConfig {
+        applicationId "br.com.silascarneiro.rickandmorty"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:${rootProject.ext.ktx}"
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.appCompat}"
+    implementation "com.google.android.material:material:${rootProject.ext.material}"
+    implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.constraintLayout}"
+
+    implementation "android.arch.lifecycle:extensions:${rootProject.ext.lifecycleExtensions}"
+    implementation "android.arch.lifecycle:viewmodel:${rootProject.ext.lifecycleViewmodel}"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${rootProject.ext.coroutines}"
+
+    implementation "de.hdodenhof:circleimageview:${rootProject.ext.circleimageview}"
+    implementation "com.yarolegovich:discrete-scrollview:${rootProject.ext.scrollview}"
+
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${rootProject.ext.converterGson}"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${rootProject.ext.coroutinesAdapter}"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:${rootProject.ext.coroutinesExperimental}"
+
+    implementation "com.github.bumptech.glide:glide:${rootProject.ext.glide}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glide}"
+
+    implementation "com.google.dagger:dagger-android:${rootProject.ext.dagger}"
+    implementation "com.google.dagger:dagger-android-support:${rootProject.ext.dagger}"
+    implementation "androidx.legacy:legacy-support-v4:${rootProject.ext.supportv4}"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${rootProject.ext.livedataKtx}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${rootProject.ext.viewmodelKtx}"
+    kapt "com.google.dagger:dagger-android-processor:${rootProject.ext.dagger}"
+    kapt "com.google.dagger:dagger-compiler:${rootProject.ext.dagger}"
+
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.ext.coroutinesCore"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$rootProject.ext.coroutinesTest"
+    testImplementation "junit:junit:$rootProject.ext.junit"
+    testImplementation "io.mockk:mockk:$rootProject.ext.mockk"
+
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.implementationJunit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.implementationEspresso"
+}

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Rick and Morty</string>
+    <string name="menssage_error">Opss, aconteceu algo errado... Você pode tentar novamente mais tarde ou repetir a chamada.</string>
+    <string name="tentar_novamente">Tentar novamente</string>
+    <string name="dash">-</string>
+    <string name="name_species_gender">%1$s | %2$s | %3$s</string>
+    <string name="data_de_criacao">data de criação</string>
+    <string name="quantidade_de_episodios">episódio(s)</string>
+    <string name="localizacao">localização</string>
+</resources>
