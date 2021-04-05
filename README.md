@@ -2,14 +2,6 @@
 
 Projeto construido utilizando a api: https://rickandmortyapi.com/documentation/
 
-<h1>Dependências utilizadas</h1>
-
-  .Retrofit<br />
-  .Gson<br />
-  .Coroutines<br />
-  .Glide<br />
-  .CircleImageView<br />
-
 <h2>Imagens do projeto</h2>
 
 <div>
