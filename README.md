@@ -7,7 +7,6 @@ Projeto construido utilizando a api: https://rickandmortyapi.com/documentation/
   .Retrofit<br />
   .Gson<br />
   .Coroutines<br />
-  .Discrest Scrollview<br />
   .Glide<br />
   .CircleImageView<br />
 
