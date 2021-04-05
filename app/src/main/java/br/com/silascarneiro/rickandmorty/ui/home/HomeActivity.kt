@@ -3,14 +3,11 @@ package br.com.silascarneiro.rickandmorty.ui.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.silascarneiro.rickandmorty.BaseApplication
@@ -23,11 +20,8 @@ import br.com.silascarneiro.rickandmorty.viewmodel.character.CharacterViewModel
 import br.com.silascarneiro.rickandmorty.viewmodel.character.events.CharacterEvent
 import br.com.silascarneiro.rickandmorty.viewmodel.character.events.CharacterState
 import com.google.android.material.snackbar.Snackbar
-import com.yarolegovich.discretescrollview.DiscreteScrollView
-import com.yarolegovich.discretescrollview.InfiniteScrollAdapter
-import com.yarolegovich.discretescrollview.transform.Pivot
-import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import javax.inject.Inject
+
 
 class HomeActivity : AppCompatActivity(), CharacterCallback {
 
@@ -37,7 +31,7 @@ class HomeActivity : AppCompatActivity(), CharacterCallback {
     lateinit var viewModel: CharacterViewModel
 
     private val clContainer by lazy { findViewById<ConstraintLayout>(R.id.cl_container) }
-    private val caroussel by lazy { findViewById<DiscreteScrollView>(R.id.rc_character) }
+    private val recycler by lazy { findViewById<RecyclerView>(R.id.rc_character) }
     private val progress by lazy { findViewById<ProgressBar>(R.id.loading_images) }
 
     companion object {
@@ -81,26 +75,22 @@ class HomeActivity : AppCompatActivity(), CharacterCallback {
     }
 
     private fun showOrHideProgress(visible: Int) {
-        progress.visibility = visible
+       progress.visibility = visible
     }
 
     private fun errorCall() {
         Snackbar.make(clContainer, getString(R.string.menssage_error), Snackbar.LENGTH_LONG)
-                .setAction(getString(R.string.tentar_novamente)) {
-                    getListCharacter()
-                }.show()
+            .setAction(getString(R.string.tentar_novamente)) {
+                getListCharacter()
+            }.show()
     }
 
     private fun sucessCall(list: List<CharacterDTO>) {
-        caroussel.adapter = InfiniteScrollAdapter.wrap(CharacterAdapter(list, this))
-        caroussel.setItemTransformer(
-                ScaleTransformer.Builder()
-                        .setMaxScale(1.05f)
-                        .setMinScale(0.8f)
-                        .setPivotX(Pivot.X.CENTER)
-                        .setPivotY(Pivot.Y.BOTTOM)
-                        .build()
-        )
+        recycler.setHasFixedSize(true)
+        recycler.adapter = CharacterAdapter(list, this)
+        ((recycler.adapter as CharacterAdapter).notifyDataSetChanged())
+        recycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        recycler.isNestedScrollingEnabled = true
     }
 
     override fun selectedCharacter(dto: CharacterDTO) {

@@ -1,7 +1,5 @@
 package br.com.silascarneiro.rickandmorty.ui.splash
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -12,10 +10,6 @@ import br.com.silascarneiro.rickandmorty.viewmodel.splash.SplashViewModel
 import br.com.silascarneiro.rickandmorty.viewmodel.splash.states.SplashState
 
 class SplashActivity : AppCompatActivity() {
-
-    companion object {
-        fun newInstance(context: Context) = Intent(context, SplashActivity::class.java)
-    }
 
     lateinit var viewmodel: SplashViewModel
 

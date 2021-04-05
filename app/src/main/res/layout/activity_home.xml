@@ -1,38 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeActivity"
-    android:background="@mipmap/background_app"
-    android:id="@+id/cl_container">
+    android:fitsSystemWindows="true"
+    android:background="@mipmap/background_verde"
+    tools:context=".ui.home.HomeActivity">
 
-    <com.yarolegovich.discretescrollview.DiscreteScrollView
-        android:id="@+id/rc_character"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        app:dsv_orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/loading_images"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/rc_character"
-        app:layout_constraintEnd_toEndOf="@+id/rc_character"
-        app:layout_constraintStart_toStartOf="@+id/rc_character"
-        app:layout_constraintTop_toTopOf="@+id/rc_character" />
+        android:fitsSystemWindows="true"
+        android:theme="@style/Theme.RickAndMorty.AppBarOverlay">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:minHeight="108dp"
+            android:fitsSystemWindows="true"
+            app:title="@string/rick_and_morty"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleGravity="center_horizontal|bottom"
+            app:expandedTitleMarginTop="140dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/rick_morty"
+                app:layout_collapseMode="parallax"
+                android:scaleType="centerCrop"/>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/Theme.RickAndMorty.PopupOverlay">
+
+                <View
+                    android:id="@+id/circle_collapsed_target"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_scrolling"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
