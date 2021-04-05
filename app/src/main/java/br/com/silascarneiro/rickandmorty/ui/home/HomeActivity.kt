@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,7 +30,7 @@ class HomeActivity : AppCompatActivity(), CharacterCallback {
 
     lateinit var viewModel: CharacterViewModel
 
-    private val clContainer by lazy { findViewById<ConstraintLayout>(R.id.cl_container) }
+    private val clContainer by lazy { findViewById<CoordinatorLayout>(R.id.cl_container) }
     private val recycler by lazy { findViewById<RecyclerView>(R.id.rc_character) }
     private val progress by lazy { findViewById<ProgressBar>(R.id.loading_images) }
 
