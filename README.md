@@ -4,9 +4,10 @@ Projeto construido utilizando a api: https://rickandmortyapi.com/documentation/
 
 <h1>Dependências utilizadas</h1>
 
-  .Retrofit
-  .Gson
-  .Coroutines
-  .Discrest Scrollview
-  .Glide
-  .CircleImageView
+  .Retrofit<br />
+  .Gson<br />
+  .Coroutines<br />
+  .Discrest Scrollview<br />
+  .Glide<br />
+  .CircleImageView<br />
+
