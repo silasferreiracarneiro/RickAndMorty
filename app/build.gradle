@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         applicationId "br.com.silascarneiro.rickandmorty"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -61,6 +61,8 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:${rootProject.ext.converterGson}"
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${rootProject.ext.coroutinesAdapter}"
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:${rootProject.ext.coroutinesExperimental}"
+
+    implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.okhttp}"
 
     implementation "com.github.bumptech.glide:glide:${rootProject.ext.glide}"
     annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glide}"

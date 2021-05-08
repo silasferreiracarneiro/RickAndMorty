@@ -1,4 +1,4 @@
-package br.com.silascarneiro.rickandmorty.config
+package br.com.silascarneiro.rickandmorty.config.request
 
 class ResultApi<SucessModel> {
 

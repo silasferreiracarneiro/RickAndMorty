@@ -3,8 +3,8 @@ package br.com.silascarneiro.rickandmorty.viewmodel.character
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.silascarneiro.rickandmorty.config.Data
-import br.com.silascarneiro.rickandmorty.config.ResultApi
+import br.com.silascarneiro.rickandmorty.config.request.Data
+import br.com.silascarneiro.rickandmorty.config.request.ResultApi
 import br.com.silascarneiro.rickandmorty.model.dto.parseCharacterToDto
 import br.com.silascarneiro.rickandmorty.model.entries.Character
 import br.com.silascarneiro.rickandmorty.usecase.CharacterUsecase

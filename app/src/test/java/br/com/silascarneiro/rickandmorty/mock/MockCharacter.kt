@@ -1,7 +1,7 @@
 package br.com.silascarneiro.rickandmorty.mock
 
-import br.com.silascarneiro.rickandmorty.config.Data
-import br.com.silascarneiro.rickandmorty.config.ResultApi
+import br.com.silascarneiro.rickandmorty.config.request.Data
+import br.com.silascarneiro.rickandmorty.config.request.ResultApi
 import br.com.silascarneiro.rickandmorty.config.read
 import br.com.silascarneiro.rickandmorty.model.dto.parseCharacterToDto
 import br.com.silascarneiro.rickandmorty.model.entries.Character
